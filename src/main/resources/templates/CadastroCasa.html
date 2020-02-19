@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="LayoutPadrao">
+
+<head>
+<title>Cadastro Casa Show</title>
+</head>
+
+<section layout:fragment="conteudo" style="padding-top: 15px">
+
+
+	<form  class="" method="POST" th:action="@{/Cadastro}"
+		id="forms" th:object="${casa}">
+		
+		
+		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+
+			<div th:each=" detailedError :  ${#fields.detailedErrors()}">
+
+				<span th:text="${detailedError.message}"></span>
+			</div>
+		</div>
+		
+		
+				
+		<div class="table" style="border-style: solid;">
+			<div th:text="${mensagem}" class="alert alert-success"
+				th:if="${!#strings.isEmpty(mensagem)}"></div>
+
+
+
+
+
+
+
+			<div class="card"></div>
+
+			<div class="clearfix">
+
+
+				<div class="card-header text-center " id="laia">Cadastramento
+					de Casa de Shows</div>
+
+
+				<div class="card-body">
+					<input type="hidden" th:field="*{codigo}" />
+				</div>
+
+
+					<div class="form-group row">
+						<label for="nomeCasa"
+							class="text-right col-sm-2 col-form-label col-form-label-sm "
+							id="tamanhofont1">Nome :</label>
+						<div class="col-sm-4 was-validated">
+							<input type="text" class="form-control form-control was-validated"
+								placeholder="Nome da Casa de show" th:field="*{nomeCasa} " name="nomeCasa"
+								th:classappend="${#fields.hasErrors('nomeCasa')} ? 'has-error'" required >
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="local"
+							class="text-right col-sm-2 col-form-label col-form-label-sm tamanhoLabel01"
+							id="tamanhofont1"> Local :</label>
+						<div class="col-sm-4 was-validated">
+							<input type="text" class="form-control form-control was-validated"
+								placeholder="Endereco " th:field="*{local}" name="local"
+								th:classappend="${#fields.hasErrors('local')} ? 'has-error'" required/>
+						</div>
+					</div>
+
+
+
+
+					<div class="form-group row">
+						<div class="col-sm-2"></div>
+						<button type="submit" class="btn btn-success">Salvar</button>
+					</div>
+					<table class="table table-bordered table-striped"
+						style="border-style: solid; border-width: 7px; margin-right: 7px; margin-top: 5px">
+
+						<thead>
+							<tr>
+								<th class="text-center" width="10%">Codigo do Show</th>
+								<th class="text-center" width="30%">Casa de Show</th>
+								<th class="text-center" width="30%">Localizada</th>
+
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="casa :${casas}">
+								<td class="text-center" th:text="${casa.codigo}"></td>
+								<td class="text-center" th:text="${casa.nomeCasa}"></td>
+								<td class="text-center" th:text="${casa.local}"></td>
+								<td colspan="6" th:if="${#lists.isEmpty(casa)}">Nenhuma
+									casa de show foi encontrada</td>
+							</tr>
+					</table>
+					<div layout:insert="DialogoConfirmacaoExclusao"></div>
+				
+
+				<div class="form-group row">
+					<div class="col-sm-3"></div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card-body">
+								<img class="card-img-top col-sm-4 " style="padding-button: 15px"
+									th:src="@{/img/bateria.jfif}"> <img
+									class="card-img-top col-sm-3" style="float: right"
+									th:src="@{/img/johnny-walker-clipart.png}">
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</form>
+</section>
+</html>

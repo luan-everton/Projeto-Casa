@@ -1,0 +1,89 @@
+
+
+#tamanhofont1{
+	
+	font-size: 25px;
+}
+
+body, html{
+  height: 100%;
+}
+
+
+#background{
+	background-attachment: fixed;
+	
+
+}
+
+#cabecalho{
+	
+	margin-left:10px;
+	margin-right:10px;
+
+}
+.alert {
+	margin-left:1px;
+	margin-right:1px;
+}
+.navbar-brand{
+	margin-left:10px;
+	margin-rigth:10px;
+}
+
+#juca{
+	padding-bottom:10px;
+	margin-left:8px;
+	margin-right:8px;
+	
+}
+.gft-link-panel{
+	float: right;
+	padding-top:10px;
+
+}
+
+.gft-titulo-panel{
+		float: left;
+		
+	
+}
+#pig{
+	font-size: 20px;
+}
+
+.table{
+	margin-top:50px;
+	
+}
+#letras{
+	font-size: 20px;
+}
+
+#dropdown01{
+	font-size: 20px;
+	
+	
+}
+#dropdown03{
+	
+	font-size: 20px;
+}
+
+#textofonte{
+	font-size: 25px;
+}
+}
+
+
+#pigs{
+	font-size: 20px;
+	
+}
+#laia{
+	font-size: 30px;
+	padding-top:10px;
+	padding-top:10px;
+
+	
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+
+<head>
+<title>TEXAS CLUB</title>
+
+</head>
+
+
+<section layout:fragment="conteudo" style="padding-top: 15px">
+
+	<form action="#" class="" method="POST" th:action="@{/novo}" id="forms"
+		th:object="${evento}">
+		<div class="table" style="border-style: solid">
+			<div th:text="${mensagem}" class="alert alert-success"
+				th:if="${!#strings.isEmpty(mensagem)}"></div>
+
+
+			<div class="card"></div>
+
+			<div class="clearfix">
+
+
+
+				<div class="card-header text-center  " id="laia">Gerenciamento
+					de Shows e Eventos</div>
+
+				<div class="card-body"></div>
+				<input type="hidden" th:field="*{codigo}" />
+
+
+				<div class="container">
+
+					<div class="form-group row">
+						<label for="conta"
+							class="text-right col-sm-2 col-form-label col-form-label-sm  tamanholabel "
+						id="tamanhofont1">Genero :</label>
+						<div class="col-sm-4">
+
+							<select class="custom-select my-1 mr-sm-2" th:field="*{Genero}">
+								<option value="Funk">Funk</option>
+								<option value="Sertanejo">Sertanejo</option>
+								<option value="Rock">Rock</option>
+								<option value="Pagode">Pagode</option>
+								<option value="Eletronica">Eletronica</option>
+								<option value="Outros">Outros</option>
+
+
+
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-group row">
+						<label for="casaShow"
+							class="text-right col-sm-2 col-form-label col-form-label-sm "
+						id="tamanhofont1"> Casa de show:</label>
+
+						<div class="col-sm-4">
+							
+							<select class="custom-select my-1 mr-sm-2" th:field="*{casaShow}">
+								<option th:each="casa: ${casas}" th:value="${casa.nomeCasa}" th:text="${casa.nomeCasa}"></option>
+			
+							</select>
+							
+							
+							
+						
+								</div>
+							</div>
+
+					<div class="form-group row">
+						<label for="dataEvento"
+							class="text-right col-sm-2 col-form-label col-form-label-sm "
+							id="tamanhofont1">Data :</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control form-control"
+								placeholder="Data do Evento" id="dataEvento"
+								th:field="*{dataEvento}">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="lotacao"
+							class="text-right col-sm-2 col-form-label col-form-label-sm tamanhoLabel01"
+							id="tamanhofont1">Lotacao :</label>
+						<div class="col-sm-2">
+							<input type="text" class="form-control form-control"
+								placeholder="20.000.00" id="lotacao" th:field="*{lotacao}">
+						</div>
+					</div>
+
+
+						
+						<div class="form-group row">
+							<label for="valor"
+								class="text-right col-sm-2 col-form-label col-form-label-sm "
+								id="tamanhofont1"> Valor</label>
+
+							<div class="col-sm-2">
+								<input type="text" class="form-control form-control"
+									placeholder="R$ 0000" th:field="*{valor}">
+									</div>
+							</div>
+
+								<div class="form-group row">
+									<div class="col-sm-2"></div>
+									<button type="submit" class="btn btn-success">Salvar</button>
+								
+							
+							
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			
+	</form>
+</section>
+</html>

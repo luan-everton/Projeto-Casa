@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="LayoutPadrao">
+
+<head>
+<title>Pesquisa Eventos</title>
+
+</head>
+<section layout:fragment="conteudo" style=  padding-top:15px>
+<div class="table" style=" border-style: solid" >
+
+	
+	<div class="card">
+		<div class="clearfix">
+			<div class="card-header  gft-titulo-panel" id="pig"> Lista de Eventos
+				</div>
+			
+		</div>
+	</div>
+	<div class="card-body"></div>
+	<table class="table table-bordered table-striped" style=" border-style: solid; border-width: 7px; margin-right: 7px; margin-top: 5px " >
+
+		<thead>
+			<tr>
+				<th class="text-center" width="10%">Codigo</th>
+				<th class="text-center" width="20%">Genero</th>
+				<th class="text-center" width="15%">Data do Evento</th>
+				<th class="text-center" width="10%">Lotacao Maxima </th>
+				<th class="text-center" width="10%">Casa de Show</th>
+				<th class="text-center" width="10%">Valor</th>
+
+
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="evento :${eventos}">
+			<td class="texte-center" th:text="${evento.codigo}"> </td>
+			<td class="texte-center" th:text="${evento.Genero}"> </td>
+			<td class="texte-center" th:text="${evento.dataEvento}"> </td>
+			<td class="texte-center" th:text="${evento.lotacao}"> </td>
+			<td class="texte-center" th:text="${evento.casaShow}"> </td>
+			<td class="texte-center" th:text="${evento.valor}"> </td>
+				<td colspan="6" th:if="${#lists.isEmpty(evento)}">Nenhum
+					evento foi encontrado</td>
+			</tr>
+	</table>
+	<div layout:insert="DialogoConfirmacaoExclusao"></div>
+	</div>
+</section>
+</html>
