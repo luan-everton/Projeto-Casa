@@ -6,11 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 public class Evento {
@@ -19,7 +16,16 @@ public class Evento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
+	@ManyToOne
+	public Casa casaShows;
 
+	public Casa getCasaShows() {
+		return casaShows;
+	}
+
+	public void setCasaShows(Casa casaShows) {
+		this.casaShows = casaShows;
+	}
 
 	public Long getCodigo() {
 		return codigo;
@@ -29,9 +35,8 @@ public class Evento {
 		this.codigo = codigo;
 	}
 
-	private String Genero;
+	 private String Genero;
 	 
-	 private String casaShow;
 	 
 	 private String lotacao;
 	 
@@ -57,13 +62,7 @@ public class Evento {
 		Genero = genero;
 	}
 
-	public String getCasaShow() {
-		return casaShow;
-	}
-
-	public void setCasaShow(String  casaShow) {
-		this.casaShow =  casaShow;
-	}
+	
 
 	public String getLotacao() {
 		return lotacao;

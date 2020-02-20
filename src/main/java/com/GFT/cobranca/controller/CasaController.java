@@ -8,12 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.GFT.cobranca.model.Casa;
+import com.GFT.cobranca.model.Evento;
 import com.GFT.cobranca.repository.CasaRepositorio;
 
 
@@ -70,6 +72,19 @@ public class CasaController {
 	ModelAndView mv = new ModelAndView(CASA_HOME);
 	mv.addObject(new Casa());
     return mv;
+	}
+	
+	
+	@RequestMapping("/Cadastro/{codigo}")
+	public ModelAndView editar(@PathVariable("codigo") Casa casa) {   
+	ModelAndView mv = new ModelAndView(CASA_VIEW);
+	mv.addObject(casa);
+    return mv;
+	}
+	@RequestMapping("/cadastro/{codigo")
+	public String excluir(@PathVariable Long codigo) {
+		casas.deleteById(codigo);
+		return "redirect:/pesquisaShow";
 	}
 	
 	

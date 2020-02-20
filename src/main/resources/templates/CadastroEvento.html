@@ -63,8 +63,8 @@
 
 						<div class="col-sm-4">
 							
-							<select class="custom-select my-1 mr-sm-2" th:field="*{casaShow}">
-								<option th:each="casa: ${casas}" th:value="${casa.nomeCasa}" th:text="${casa.nomeCasa}"></option>
+							<select class="custom-select my-1 mr-sm-2" name="casaShows">
+								<option th:each="casaShows: ${casas}" th:value="${casaShows.codigo}" th:text="${casaShows.nomeCasa}"></option>
 			
 							</select>
 							
@@ -74,37 +74,37 @@
 								</div>
 							</div>
 
-					<div class="form-group row">
+					<div class="form-group row was-validated" >
 						<label for="dataEvento"
 							class="text-right col-sm-2 col-form-label col-form-label-sm "
 							id="tamanhofont1">Data :</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control form-control"
+							<input type="text" class="form-control form-controlwas-validated"
 								placeholder="Data do Evento" id="dataEvento"
-								th:field="*{dataEvento}">
+								th:field="*{dataEvento} " required>
 						</div>
 					</div>
 
-					<div class="form-group row">
+					<div class="form-group row was-validated" >
 						<label for="lotacao"
 							class="text-right col-sm-2 col-form-label col-form-label-sm tamanhoLabel01"
 							id="tamanhofont1">Lotacao :</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control form-control"
-								placeholder="20.000.00" id="lotacao" th:field="*{lotacao}">
+							<input type="text" class="form-control form-control was-validated"
+								placeholder="20.000.00" id="lotacao" th:field="*{lotacao} " required>
 						</div>
 					</div>
 
 
 						
-						<div class="form-group row">
+						<div class="form-group row was-validated">
 							<label for="valor"
 								class="text-right col-sm-2 col-form-label col-form-label-sm "
 								id="tamanhofont1"> Valor</label>
 
 							<div class="col-sm-2">
-								<input type="text" class="form-control form-control"
-									placeholder="R$ 0000" th:field="*{valor}">
+								<input type="text" class="form-control form-control was-validated"
+									placeholder="R$ 0000" th:field="*{valor} " required>
 									</div>
 							</div>
 
