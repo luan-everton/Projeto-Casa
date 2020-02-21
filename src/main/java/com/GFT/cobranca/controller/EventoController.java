@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -74,8 +75,7 @@ public class EventoController {
 	public ModelAndView CadastroPost( Evento evento , RedirectAttributes attributes, Errors errors) {
 		
 		if (errors.hasErrors()) {
-			ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-
+			ModelAndView mv = new ModelAndView("redirect:/Cadastro");
 			List<Evento>listaevento= eventos.findAll();
 			mv.addObject(new Evento());
 			mv.addObject("eventos",listaevento);
@@ -105,10 +105,11 @@ public class EventoController {
 		
 	}
 	
-	@RequestMapping("/novo/{codigo")
+	@RequestMapping(value ="/novo/{codigo}", method=RequestMethod.POST)
 	public String excluir(@PathVariable Long codigo) {
 		eventos.deleteById(codigo);
-		return "redirect:/pesquisaShow";
+		return "redirect:/pesquisa";
 	}
+	
 	
 }

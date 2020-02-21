@@ -1,8 +1,7 @@
-$('#confirmacaoExclusaoModal').on('show.bs.modal',function(event){
+$('#confirmacaoexclusaoevento').on('show.bs.modal',function(event){
 	
 	var button = $(event.relatedTarget);
-	var codigoTitulo = button.data('codigo');
-	var contaTitulo = button.data('conta');
+	var codigoEvento = button.data('codigo');
 	
 	var modal = $(this);
 	var form = modal.find('form');
@@ -10,11 +9,11 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal',function(event){
 	if (!action.endsWith('/')){
 		action+='/';
 	}
-form.attr('action', action + codigoTitulo);
+form.attr('action', action + codigoEvento);
 
 });
 	
-	
+
 	
 	
 	

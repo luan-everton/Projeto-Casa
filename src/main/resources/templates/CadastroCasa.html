@@ -15,20 +15,12 @@
 		id="forms" th:object="${casa}">
 		
 		
-		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
-
-			<div th:each=" detailedError :  ${#fields.detailedErrors()}">
-
-				<span th:text="${detailedError.message}"></span>
-			</div>
-		</div>
-		
 		
 				
 		<div class="table" style="border-style: solid;">
 			<div th:text="${mensagem}" class="alert alert-success"
 				th:if="${!#strings.isEmpty(mensagem)}"></div>
-
+</div>
 
 
 
@@ -42,7 +34,7 @@
 
 				<div class="card-header text-center " id="laia">Cadastramento
 					de Casa de Shows</div>
-
+</div>
 
 				<div class="card-body">
 					<input type="hidden" th:field="*{codigo}" />
@@ -55,7 +47,7 @@
 							id="tamanhofont1">Nome :</label>
 						<div class="col-sm-4 was-validated">
 							<input type="text" class="form-control form-control was-validated"
-								placeholder="Nome da Casa de show" th:field="*{nomeCasa} " name="nomeCasa"
+								placeholder="Nome da Casa de show" th:field="*{nomeCasa} "
 								th:classappend="${#fields.hasErrors('nomeCasa')} ? 'has-error'" required >
 						</div>
 					</div>
@@ -66,7 +58,7 @@
 							id="tamanhofont1"> Local :</label>
 						<div class="col-sm-4 was-validated">
 							<input type="text" class="form-control form-control was-validated"
-								placeholder="Endereco " th:field="*{local}" name="local"
+								placeholder="Endereco " th:field="*{local}" 
 								th:classappend="${#fields.hasErrors('local')} ? 'has-error'" required/>
 						</div>
 					</div>
@@ -78,6 +70,7 @@
 						<div class="col-sm-2"></div>
 						<button type="submit" class="btn btn-success">Salvar</button>
 					</div>
+					</form>
 					<table class="table table-bordered table-striped"
 						style="border-style: solid; border-width: 7px; margin-right: 7px; margin-top: 5px">
 
@@ -86,7 +79,7 @@
 								<th class="text-center" width="10%">Codigo do Show</th>
 								<th class="text-center" width="30%">Casa de Show</th>
 								<th class="text-center" width="30%">Localizada</th>
-								<th class="text-center" width="20%">Localizada</th>
+								<th class="text-center" width="20%">####</th>
 								
 
 
@@ -102,8 +95,8 @@
 				    th:attr="data-codigo=${casa.codigo}"> 
 					<i class="fas fa-pencil-alt"></i>
 				</a> 
-				<a class="btn btn-link btn-xs" data-toggle="modal" data-target='#confirmacaoExclusaoModal' 
-				 th:attr="data-codigo=${casa.codigo}"> 
+				<a class="btn btn-link btn-sm" 
+				 th:attr="data-codigo=${casa.codigo}" th:href="@{/Cadastro/delete/{codigo}(codigo=${casa.codigo})}"> 
 			        <i class="fas fa-window-close"></i>
 				</a>
 				</td>
@@ -116,30 +109,11 @@
 									casa de show foi encontrada</td>
 							</tr>
 					</table>
-					<div layout:insert="DialogoConfirmacaoExclusao"></div>
-	</div>
+					<div layout:insert="ConfirmacaoExclusaoCasa"></div>
+
 				
 
-				<div class="form-group row">
-					<div class="col-sm-3"></div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="card-body">
-								<img class="card-img-top col-sm-4 " style="padding-button: 15px"
-									th:src="@{/img/bateria.jfif}"> <img
-									class="card-img-top col-sm-3" style="float: right"
-									th:src="@{/img/johnny-walker-clipart.png}">
-							</div>
-
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		
-
-
-	</form>
+			
+	
 </section>
 </html>
