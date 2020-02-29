@@ -1,12 +1,18 @@
 package com.GFT.cobranca.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 
 @Entity
@@ -19,32 +25,36 @@ public class Evento {
 	@ManyToOne
 	public Casa casaShows;
 
-	public Casa getCasaShows() {
-		return casaShows;
-	}
-
-	public void setCasaShows(Casa casaShows) {
-		this.casaShows = casaShows;
-	}
-
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
-
+	
 	 private String Genero;
 	 
 	 
 	 private String lotacao;
 	 
-
-	 private String dataEvento;
+	 @DateTimeFormat(pattern="dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+	 private Date dataEvento;
 	 
-	
+	 @NumberFormat(pattern="#,##0.00")
 	 private BigDecimal valor;
+	 
+	 
+	 public Casa getCasaShows() {
+			return casaShows;
+		}
+
+		public void setCasaShows(Casa casaShows) {
+			this.casaShows = casaShows;
+		}
+
+		public Long getCodigo() {
+			return codigo;
+		}
+
+		public void setCodigo(Long codigo) {
+			this.codigo = codigo;
+		}
+
 
 	public BigDecimal getValor() {
 		return valor;
@@ -72,11 +82,11 @@ public class Evento {
 		this.lotacao = lotacao;
 	}
 
-	public String  getDataEvento() {
+	public Date getDataEvento() {
 		return dataEvento;
 	}
 
-	public void setDataEvento(String  dataEvento) {
+	public void setDataEvento(Date  dataEvento) {
 		this.dataEvento = dataEvento;
 	}
 	 @Override

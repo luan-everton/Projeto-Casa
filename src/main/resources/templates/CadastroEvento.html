@@ -56,15 +56,15 @@
 					</div>
 
 
-					<div class="form-group row">
+					<div class="form-group row was-validated">
 						<label for="casaShow"
 							class="text-right col-sm-2 col-form-label col-form-label-sm "
 						id="tamanhofont1"> Casa de show:</label>
 
 						<div class="col-sm-4">
 							
-							<select class="custom-select my-1 mr-sm-2" name="casaShows">
-								<option th:each="casaShows: ${casas}" th:value="${casaShows.codigo}" th:text="${casaShows.nomeCasa}"></option>
+							<select class="custom-select my-1 mr-sm-2" name="casaShows" required>
+								<option th:each="casaShows: ${casas}" th:value="${casaShows.codigo}" th:text="${casaShows.nomeCasa}"  ></option>
 			
 							</select>
 							
@@ -78,9 +78,9 @@
 						<label for="dataEvento"
 							class="text-right col-sm-2 col-form-label col-form-label-sm "
 							id="tamanhofont1">Data :</label>
-						<div class="col-sm-2">
-							<input type="text" class="form-control form-controlwas-validated"
-								placeholder="Data do Evento" id="dataEvento"
+						<div class="col-sm-4">
+							<input type="date" class="form-control form-control was-validated"
+								placeholder="dd/mm/aaaa" id="dataEvento"  max="2999-12-31"
 								th:field="*{dataEvento} " required>
 						</div>
 					</div>
